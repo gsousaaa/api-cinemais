@@ -7,7 +7,8 @@ const envSchema = z.object({
     PG_USERNAME: z.string(),
     PG_PASSWORD: z.string(),
     PG_PORT: z.coerce.number().default(6442),
-    PG_DATABASE: z.string()
+    PG_DATABASE: z.string(),
+    PG_HOST: z.string()
 })
 
 const _env = envSchema.safeParse(process.env)
