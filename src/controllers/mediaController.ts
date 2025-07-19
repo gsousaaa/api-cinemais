@@ -18,7 +18,7 @@ export class MediaController {
     }
 
     static async findOne(req: FastifyRequest, reply: FastifyReply) {
-        const { id } = findMediaSchema.parse(req.query)
+        const { id } = findMediaSchema.parse(req.params)
         const service = makeFindMediaService()
 
         const response = await service.execute(id)
