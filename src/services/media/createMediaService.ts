@@ -1,5 +1,5 @@
 import { ICreateMedia } from "@/types/media";
-import { MediaRepository } from "../repositories/MediaRepository";
+import { MediaRepository } from "../../repositories/MediaRepository";
 import { BadRequest } from "@/utils/customError";
 
 export class CreateMediaService {
