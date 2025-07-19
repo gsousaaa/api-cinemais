@@ -12,14 +12,14 @@ export class TypeOrmMediaRepository implements MediaRepository {
         return await this.repository.save(data)
     }
 
-    async findAll(): Promise<Media[]> {
-        return this.repository.find()
+    async findAll(offset: number, limit: number): Promise<Media[]> {
+        return this.repository.find({take: limit, skip: offset })
     }
 
     async findOne(id: string): Promise<Media | null> {
         return await this.repository.findOne({ where: { id } })
     }
-    
+
     async findOneBy(where: Partial<Media>): Promise<Media | null> {
         return await this.repository.findOne({ where })
     }
