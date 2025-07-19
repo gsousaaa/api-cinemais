@@ -8,7 +8,7 @@ export class TypeOrmFavoriteRepository implements FavoriteRepository {
     constructor(private readonly appDataSource: DataSource) { }
 
     async create(userId: string, mediaId: string): Promise<Favorite> {
-        return await this.repository.save({userId, mediaId})
+        return await this.repository.save({ userId, mediaId })
     }
 
     async findAll(): Promise<Favorite[]> {
@@ -17,5 +17,9 @@ export class TypeOrmFavoriteRepository implements FavoriteRepository {
 
     async findOneBy(where: Partial<Favorite>): Promise<Favorite | null> {
         return await this.repository.findOne({ where })
+    }
+
+    async findAllBy(where: Partial<Favorite>): Promise<Favorite[]> {
+        return await this.repository.find({where})
     }
 }
