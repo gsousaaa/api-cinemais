@@ -15,7 +15,7 @@ export class TypeOrmFavoriteRepository implements FavoriteRepository {
         return this.repository.find()
     }
 
-    async findOne(id: string): Promise<Favorite | null> {
-        return await this.repository.findOne({ where: { id } })
+    async findOneBy(where: Partial<Favorite>): Promise<Favorite | null> {
+        return await this.repository.findOne({ where })
     }
 }
