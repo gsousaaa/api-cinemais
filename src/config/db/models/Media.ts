@@ -4,27 +4,28 @@ import { MediaType } from '@/types/media';
 
 @Entity('medias')
 export class Media {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+    @Column({name: 'id', type: 'uuid'})
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-  @Column()
-  title: string;
+    @Column({ name: 'title', type: 'varchar' })
+    title: string;
 
-  @Column()
-  description: string;
+    @Column({ name: 'description', type: 'varchar' })
+    description: string;
 
-  @Column({ type: 'enum', enum: ['movie', 'series'] })
-  type: MediaType;
+    @Column({ name: 'type', type: 'enum', enum: ['movie', 'series'] })
+    type: MediaType;
 
-  @Column({ name: 'release_year' })
-  releaseYear: number;
+    @Column({ name: 'release_year', type: 'int' })
+    releaseYear: number;
 
-  @Column()
-  genre: string;
+    @Column({ name: 'genre', type: 'varchar' })
+    genre: string;
 
-  @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+    @CreateDateColumn({ name: 'created_at', type: 'datetime' })
+    createdAt: Date;
 
-  @OneToMany(() => Favorite, (favorite) => favorite.media)
-  favorites: Favorite[];
+    @OneToMany(() => Favorite, (favorite) => favorite.media)
+    favorites: Favorite[];
 }

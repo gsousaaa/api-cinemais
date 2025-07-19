@@ -6,16 +6,16 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({name: 'name', type: 'varchar'})
   name: string;
 
-  @Column({ unique: true })
+  @Column({ name: 'email', unique: true, type: 'varchar' })
   email: string;
 
-  @Column()
+  @Column({name: 'password', type: 'varchar'})
   password: string;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({ name: 'created_at', type: 'datetime' })
   createdAt: Date;
 
   @OneToMany(() => Favorite, (favorite) => favorite.user)

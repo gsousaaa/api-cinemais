@@ -7,10 +7,10 @@ export class Favorite {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ name: 'user_id' })
+    @Column({ name: 'user_id', type: 'uuid' })
     userId: string
 
-    @Column({ name: 'media_id' })
+    @Column({ name: 'media_id', type: 'uuid'})
     mediaId: string
 
     @ManyToOne(() => User, (user) => user.favorites, { onDelete: 'CASCADE' })
