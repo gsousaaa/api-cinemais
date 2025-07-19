@@ -19,4 +19,8 @@ export class TypeOrmMediaRepository implements MediaRepository {
     async findOne(id: string): Promise<Media | null> {
         return await this.repository.findOne({ where: { id } })
     }
+    
+    async findOneBy(where: Partial<Media>): Promise<Media | null> {
+        return await this.repository.findOne({ where })
+    }
 }
