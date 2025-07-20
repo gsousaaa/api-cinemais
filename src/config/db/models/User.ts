@@ -15,7 +15,7 @@ export class User {
   @Column({name: 'password', type: 'varchar'})
   password: string;
 
-  @CreateDateColumn({ name: 'created_at', type: 'datetime' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 
   @OneToMany(() => Favorite, (favorite) => favorite.user)

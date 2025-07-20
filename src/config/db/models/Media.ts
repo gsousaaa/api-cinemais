@@ -23,7 +23,7 @@ export class Media {
     @Column({ name: 'genre', type: 'varchar' })
     genre: string;
 
-    @CreateDateColumn({ name: 'created_at', type: 'datetime' })
+    @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
     createdAt: Date;
 
     @OneToMany(() => Favorite, (favorite) => favorite.media)
