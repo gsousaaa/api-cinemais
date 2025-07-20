@@ -5,4 +5,5 @@ export interface FavoriteRepository {
     findAll(userId: string): Promise<Favorite[]>,
     findOneBy(where: Partial<Favorite>): Promise<Favorite | null>
     findAllBy(where: Partial<Favorite>): Promise<Favorite[]>
+    delete(where: Partial<Favorite>): Promise<any>
 }

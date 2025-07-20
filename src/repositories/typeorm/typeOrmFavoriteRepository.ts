@@ -1,4 +1,4 @@
-import { DataSource } from "typeorm";
+import { DataSource, DeleteResult } from "typeorm";
 import { FavoriteRepository } from "../FavoriteRepository";
 import { Favorite } from "@/config/db/models/Favorite";
 
@@ -21,5 +21,9 @@ export class TypeOrmFavoriteRepository implements FavoriteRepository {
 
     async findAllBy(where: Partial<Favorite>): Promise<Favorite[]> {
         return await this.repository.find({where})
+    }
+
+    async delete(where: Partial<Favorite>): Promise<DeleteResult> {
+        return await this.repository.delete(where)
     }
 }
