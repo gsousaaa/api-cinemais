@@ -4,8 +4,8 @@ import { makeCreateMediaService } from "@/services/factories/make-createMediaSer
 import { HttpStatus } from "@/utils/HttpStatus";
 import { makeFindMediaService } from "@/services/factories/make-findMediaService";
 import { findMediaSchema } from "./schemas/findMediaSchema";
-import { findAllMediasSchema } from "./schemas/findAllMediasSchema";
 import { makeFindAllMediasService } from "@/services/factories/make-findAllMediasService";
+import { paginationSchema } from "./schemas/paginationSchema";
 
 export class MediaController {
     static async create(req: FastifyRequest, reply: FastifyReply) {
@@ -27,7 +27,7 @@ export class MediaController {
     }
 
     static async findAll(req: FastifyRequest, reply: FastifyReply) {
-        const { page, limit } = findAllMediasSchema.parse(req.query)
+        const { page, limit } = paginationSchema.parse(req.query)
         const service = makeFindAllMediasService()
 
         const response = await service.execute(page, limit)
