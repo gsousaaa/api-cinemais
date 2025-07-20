@@ -5,7 +5,7 @@ services:
     image: postgres:latest
     container_name: postgres-db
     ports:
-      - "${PG_PORT}:${PG_PORT}"
+      - "${PG_PORT}:5432"
     environment:
       POSTGRES_USER: ${PG_USERNAME}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
@@ -25,12 +25,13 @@ services:
     build: .
     container_name: api-cinemais
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "${PORT}:${PORT}"
     environment:
       PG_HOST: db
-      PG_PORT: ${PG_PORT}
+      PG_PORT: 5432
       PG_USERNAME: ${PG_USERNAME}
       PG_PASSWORD: ${PG_PASSWORD}
       PG_DATABASE: ${PG_DATABASE}
