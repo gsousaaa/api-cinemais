@@ -11,6 +11,6 @@ export const appDataSource = new DataSource({
     password: env.PG_PASSWORD,
     port: env.PG_PORT,
     database: env.PG_DATABASE,
-    synchronize: false,
+    synchronize: true, // nao utilizar em producao
     entities: [Favorite, Media, User]
 })
