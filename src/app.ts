@@ -22,9 +22,9 @@ const startServer = async () => {
     }).catch((err) => console.error(err))
 
 
-    await app.listen({ port: env.PORT })
+    await app.listen({ port: env.PORT, host: '0.0.0.0' })
 
-    console.log('Server running at http://localhost:3000')
+    console.log(`Server running at http://localhost:${env.PORT}`)
 }
 
 startServer()
