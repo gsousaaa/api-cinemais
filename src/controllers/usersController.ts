@@ -1,10 +1,10 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { makeCreateFavoriteMediaService } from "@/services/factories/make-createFavoriteMediaService";
+import { makeCreateFavoriteMediaService } from "@/services/users/factories/make-createFavoriteMediaService";
 import { HttpStatus } from "@/utils/HttpStatus";
-import { makeFindAllFavoriteMediasService } from "@/services/factories/make-findAllFavoriteMediasService";
+import { makeFindAllFavoriteMediasService } from "@/services/users/factories/make-findAllFavoriteMediasService";
 import { bodyCreateFavoriteMedia, paramsCreateFavoriteMedia } from "./schemas/createFavoriteMediaSchema";
 import { removeFavoriteMediaSchema } from "./schemas/removeFavoriteMediaSchema";
-import { makeRemoveFavoriteMediaService } from "@/services/factories/make-removeFavoriteMediaService";
+import { makeRemoveFavoriteMediaService } from "@/services/users/factories/make-removeFavoriteMediaService";
 
 export class UsersController {
     static async createFavoriteMedia(req: FastifyRequest, reply: FastifyReply) {

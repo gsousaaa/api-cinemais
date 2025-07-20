@@ -1,7 +1,7 @@
 import { appDataSource } from "@/config/db/datasource";
 import { TypeOrmMediaRepository } from "@/repositories/typeorm/typeOrmMediaRepository";
 import { TypeOrmFavoriteRepository } from "@/repositories/typeorm/typeOrmFavoriteRepository";
-import { CreateFavoriteMediaService } from "../users/createFavoriteMediaService";
+import { CreateFavoriteMediaService } from "../createFavoriteMediaService";
 
 export function makeCreateFavoriteMediaService() {
     const mediaRepo = new TypeOrmMediaRepository(appDataSource)

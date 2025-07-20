@@ -1,10 +1,10 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { createMediaSchema } from "./schemas/createMediaSchema";
-import { makeCreateMediaService } from "@/services/factories/make-createMediaService";
+import { makeCreateMediaService } from "@/services/media/factories/make-createMediaService";
 import { HttpStatus } from "@/utils/HttpStatus";
-import { makeFindMediaService } from "@/services/factories/make-findMediaService";
+import { makeFindMediaService } from "@/services/media/factories/make-findMediaService";
 import { findMediaSchema } from "./schemas/findMediaSchema";
-import { makeFindAllMediasService } from "@/services/factories/make-findAllMediasService";
+import { makeFindAllMediasService } from "@/services/media/factories/make-findAllMediasService";
 import { paginationSchema } from "./schemas/paginationSchema";
 
 export class MediaController {

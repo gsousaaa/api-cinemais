@@ -1,9 +1,9 @@
 import { appDataSource } from "@/config/db/datasource";
 import { TypeOrmMediaRepository } from "@/repositories/typeorm/typeOrmMediaRepository";
-import { CreateMediaService } from "../media/createMediaService";
+import { FindAllMediasService } from "../findAllMediasService";
 
-export function makeCreateMediaService() {
+export function makeFindAllMediasService() {
     const repo = new TypeOrmMediaRepository(appDataSource)
 
-    return new CreateMediaService(repo)
+    return new FindAllMediasService(repo)
 }
