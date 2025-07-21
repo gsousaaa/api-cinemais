@@ -47,7 +47,7 @@
 
 ### Diagrama do Banco de Dados
 
-![alt text](assets/dbdiagrama.png)
+![alt text](assets/dbdiagram.png)
 
 ### Tecnologias Utilizadas
 
