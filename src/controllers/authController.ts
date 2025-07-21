@@ -19,6 +19,6 @@ export class AuthController {
         const service = makeLoginService()
 
         const response = await service.execute(payload)
-        return reply.code(HttpStatus.CREATED).send(response)
+        return reply.code(HttpStatus.OK).send(response)
     }
 }
