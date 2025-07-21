@@ -9,7 +9,7 @@ export class LoginService {
         const existsUser = await this.userRepository.findOneBy({ email: data.email })
         if (!existsUser) throw new BadRequest(`Usuário e/ou senha incorretos!`)
 
-        const matchPassword = this.hashService.compare(data.password, existsUser.password)
+        const matchPassword = await this.hashService.compare(data.password, existsUser.password)
         if (!matchPassword) throw new BadRequest(`Usuário e/ou senha incorretos!`)
 
         const accessToken = generateToken({ id: existsUser.id, email: existsUser.email, name: existsUser.name })
