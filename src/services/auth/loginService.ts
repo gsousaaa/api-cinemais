@@ -13,6 +13,6 @@ export class LoginService {
         if (!matchPassword) throw new BadRequest(`Usuário e/ou senha incorretos!`)
 
         const accessToken = generateToken({ id: existsUser.id, email: existsUser.email, name: existsUser.name })
-        return { accessToken }
+        return { userId: existsUser.id, accessToken }
     }
 }
