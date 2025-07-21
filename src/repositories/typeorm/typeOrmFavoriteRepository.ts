@@ -20,7 +20,7 @@ export class TypeOrmFavoriteRepository implements FavoriteRepository {
     }
 
     async findAllBy(where: Partial<Favorite>): Promise<Favorite[]> {
-        return await this.repository.find({where})
+        return await this.repository.find({where, relations: ['media']})
     }
 
     async delete(where: Partial<Favorite>): Promise<DeleteResult> {
