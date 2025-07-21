@@ -12,8 +12,9 @@ export class RegisterUserService {
 
         const hashedPassword = await this.hashService.hash(data.password)
         const createdUser = await this.userRepository.create({ ...data, password: hashedPassword })
+        const { password, ...rest } = createdUser
 
         const accessToken = generateToken({ id: createdUser.id, email: createdUser.email, name: createdUser.name })
-        return { createdUser, accessToken }
+        return { createdUser: rest, accessToken }
     }
 }
